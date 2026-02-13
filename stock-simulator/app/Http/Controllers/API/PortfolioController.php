@@ -13,7 +13,7 @@ class PortfolioController extends Controller
      */
     public function index(): JsonResponse
     {
-        // For simplicity, using user ID 1 (predefined user)
+        //predefined user
         $userId = 1;
 
         $user = User::find($userId);
