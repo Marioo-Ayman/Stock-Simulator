@@ -1,5 +1,3 @@
-// src/services/api.ts
-
 import type { Stock, Portfolio, TradeRequest, TradeResponse } from '../types';
 
 const API_BASE_URL = 'http://localhost:8000/api';

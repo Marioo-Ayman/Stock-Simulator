@@ -1,7 +1,5 @@
-import React from 'react';
 import { useAppSelector } from '../store/hooks';
-
-const Message: React.FC = () => {
+export default function Message() {
   const { message } = useAppSelector((state) => state.ui);
 
   if (!message) return null;
@@ -21,4 +19,3 @@ const Message: React.FC = () => {
   );
 };
 
-export default Message;

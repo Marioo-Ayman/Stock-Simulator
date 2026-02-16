@@ -1,6 +1,4 @@
-import React from 'react';
-
-const Loading: React.FC = () => {
+export default function Loading() {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-50">
       <div className="text-center">
@@ -11,4 +9,3 @@ const Loading: React.FC = () => {
   );
 };
 
-export default Loading;

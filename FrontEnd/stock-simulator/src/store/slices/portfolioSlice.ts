@@ -17,7 +17,6 @@ const initialState: PortfolioState = {
   error: null,
 };
 
-// Async thunks
 export const fetchPortfolio = createAsyncThunk(
   'portfolio/fetchPortfolio',
   async () => {
@@ -51,7 +50,6 @@ const portfolioSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Fetch portfolio
       .addCase(fetchPortfolio.pending, (state) => {
         state.loading = true;
         state.error = null;

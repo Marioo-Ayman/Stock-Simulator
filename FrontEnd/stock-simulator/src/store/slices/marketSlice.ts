@@ -17,7 +17,6 @@ const initialState: MarketState = {
   error: null,
 };
 
-// Async thunks
 export const fetchMarket = createAsyncThunk(
   'market/fetchMarket',
   async () => {
@@ -44,7 +43,6 @@ const marketSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Fetch market
       .addCase(fetchMarket.pending, (state) => {
         state.loading = true;
         state.error = null;
