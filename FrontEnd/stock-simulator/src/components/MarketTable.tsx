@@ -118,7 +118,7 @@ export default function MarketTable() {
   };
 
   return (
-    <div className="bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl rounded-3xl p-6">
+    <div className="bg-white backdrop-blur-xl border border-white/40 shadow-xl rounded-3xl p-6">
       <h2 className="mb-6 text-xl font-bold text-gray-900">Market Overview</h2>
       
       <div className="overflow-x-auto ">

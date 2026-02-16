@@ -6,8 +6,6 @@ import type { Position } from '../types';
 
 const Portfolio: React.FC = () => {
   const { balance, positions } = useAppSelector((state) => state.portfolio);
-
-  // Calculate portfolio totals
   const totalValue = positions.reduce((sum, position) => {
     const currentPrice = typeof position.current_price === 'string' 
       ? parseFloat(position.current_price) 
@@ -25,10 +23,8 @@ const Portfolio: React.FC = () => {
 
   const totalProfitLossPercent = totalCost > 0 ? (totalProfitLoss / totalCost) * 100 : 0;
 
-  // Color schemes based on profit/loss
   const getColorScheme = (isProfitable: boolean) => {
     if (isProfitable) {
-      // Blue/Green theme for gains
       return {
         bg: 'from-blue-50 to-cyan-50',
         border: 'border-blue-200',
@@ -37,7 +33,6 @@ const Portfolio: React.FC = () => {
         hover: 'hover:border-blue-300'
       };
     } else {
-      // Red theme for losses
       return {
         bg: 'from-rose-50 to-red-50',
         border: 'border-rose-200',
@@ -68,7 +63,6 @@ const Portfolio: React.FC = () => {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Cash Balance */}
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -90,7 +84,6 @@ const Portfolio: React.FC = () => {
               </motion.p>
             </motion.div>
 
-            {/* Portfolio Value */}
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -109,7 +102,6 @@ const Portfolio: React.FC = () => {
               </motion.p>
             </motion.div>
 
-            {/* Total Invested */}
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -122,7 +114,6 @@ const Portfolio: React.FC = () => {
               </p>
             </motion.div>
 
-            {/* Total P/L */}
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -154,9 +145,8 @@ const Portfolio: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Portfolio Positions */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="mb-5 text-lg font-bold text-gray-900">Your Positions</h3>
+      <div className=" p-6 shadow-sm">
+        <h3 className="mb-5 text-lg font-bold text-white">Your Positions</h3>
 
         {positions.length === 0 ? (
           <motion.div
@@ -194,11 +184,8 @@ const Portfolio: React.FC = () => {
                   }}
                   className={`relative overflow-hidden rounded-xl border-2 bg-linear-to-br ${colors.bg} ${colors.border} ${colors.hover} p-5 transition-all duration-200`}
                 >
-                  {/* Decorative background */}
                   <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/40 blur-2xl" />
-
                   <div className="relative space-y-4">
-                    {/* Header */}
                     <div className="flex items-start justify-between">
                       <div>
                         <h4 className={`text-2xl font-bold ${colors.accent}`}>{position.symbol}</h4>
@@ -215,8 +202,6 @@ const Portfolio: React.FC = () => {
                         {isProfitable ? 'Gain' : 'Loss'}
                       </motion.div>
                     </div>
-
-                    {/* Price Info */}
                     <div className="space-y-2 rounded-lg bg-white/70 p-3 backdrop-blur-sm">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-gray-600">Current</span>
@@ -232,7 +217,6 @@ const Portfolio: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Position Value */}
                     <div className="space-y-1">
                       <p className="text-xs font-semibold text-gray-600">Position Value</p>
                       <p className="text-xl font-bold text-gray-900">
@@ -240,7 +224,6 @@ const Portfolio: React.FC = () => {
                       </p>
                     </div>
 
-                    {/* Profit/Loss */}
                     <motion.div
                       className={`flex items-center justify-between rounded-xl px-3 py-2.5 ${
                         isProfitable
